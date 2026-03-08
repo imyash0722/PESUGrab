@@ -42,14 +42,14 @@
 
 ## Quick Start
 
-### Option 1 — Standalone `.exe` (recommended)
+### Option 1 — Setup Installer (recommended)
 
 1. Go to [**Releases**](https://github.com/imyash0722/PESUGrab/releases/latest)
-2. Download `PESUGrab.exe`
-3. Double-click to run — **no Python required**
+2. Download `PESUGrab-Setup-v1.0.0.exe`
+3. Double-click to install. This will add shortcuts to your Start Menu and Desktop.
 
 > [!NOTE]
-> The exe bundles Python + dependencies. Playwright's Chromium browser is **not** bundled — it will be downloaded on first run. Make sure you have internet access.
+> The installer bundles Python + dependencies. Playwright's Chromium browser is **not** bundled — it will be downloaded on first run. Make sure you have internet access.
 
 ### Option 2 — Run from source
 
