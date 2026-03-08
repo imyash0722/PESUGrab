@@ -5,10 +5,7 @@
 **Desktop app for downloading course materials from PESU Academy.**
 
 <p>
-  <a href="https://github.com/imyash0722/PESUGrab/releases/latest">
-    <img alt="Downloads" src="https://img.shields.io/github/downloads/imyash0722/PESUGrab/total?style=for-the-badge&logo=github&logoColor=white&label=Downloads&color=7e57c2&v=1">
-  </a>
-  &nbsp;
+
   <a href="https://github.com/imyash0722/PESUGrab/releases/latest">
     <img alt="Latest Release" src="https://img.shields.io/github/v/release/imyash0722/PESUGrab?style=for-the-badge&logo=windows&logoColor=white&label=Latest&color=b39ddb&v=1">
   </a>
