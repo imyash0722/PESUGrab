@@ -21,6 +21,9 @@
 
 </div>
 
+> [!WARNING]
+> ⚠️ **Disclaimer:** This application exclusively accesses PESU Academy via an automated local Playwright Chromium instance. It does not communicate with any external servers, third-party websites, or analytics services. All data scraping is designed to be highly efficient, strictly simulating normal student interaction. It does not exploit, maliciously load, or deteriorate the services provided by PES University in any manner.
+
 ## Features
 
 |                                |                                                                      |
