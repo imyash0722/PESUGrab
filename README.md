@@ -45,7 +45,7 @@
 ### Option 1 — Standalone `.exe` (recommended)
 
 1. Go to [**Releases**](https://github.com/imyash0722/PESUGrab/releases/latest)
-2. Download `PESUGrab.exe` (or the `.zip` / `.rar` archive)
+2. Download `PESUGrab.exe`
 3. Double-click to run — **no Python required**
 
 > [!NOTE]
