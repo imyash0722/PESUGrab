@@ -8,9 +8,9 @@ env/
 *.egg-info/
 dist/
 build/
+*.spec
 .pytest_cache/
 *.log
 downloads/
 PESU_Downloads/
-convert-failed-examples/
-equilibrative/
+screenshots/

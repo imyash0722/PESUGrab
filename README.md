@@ -1,56 +1,139 @@
+<div align="center">
+
 # PESUGrab
 
-A lightweight desktop app that downloads course slides and materials from [PESU Academy](https://www.pesuacademy.com/Academy/) using headless browser automation.
+**Desktop app for downloading course materials from PESU Academy.**
+
+<p>
+  <a href="https://github.com/imyash0722/PESUGrab/releases/latest">
+    <img alt="Downloads" src="https://img.shields.io/github/downloads/imyash0722/PESUGrab/total?style=for-the-badge&logo=github&logoColor=white&label=Downloads&color=7e57c2">
+  </a>
+  &nbsp;
+  <a href="https://github.com/imyash0722/PESUGrab/releases/latest">
+    <img alt="Latest Release" src="https://img.shields.io/github/v/release/imyash0722/PESUGrab?style=for-the-badge&logo=windows&logoColor=white&label=Latest&color=b39ddb">
+  </a>
+  &nbsp;
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.12+-333?style=for-the-badge&logo=python&logoColor=white">
+  &nbsp;
+  <img alt="Platform" src="https://img.shields.io/badge/Windows-10%2F11-333?style=for-the-badge&logo=windows&logoColor=white">
+  &nbsp;
+  <img alt="License" src="https://img.shields.io/github/license/imyash0722/PESUGrab?style=for-the-badge&color=444">
+</p>
+
+<br>
+
+<p>
+  <a href="https://github.com/imyash0722/PESUGrab/releases/latest">
+    <img src="https://img.shields.io/badge/⬇_Download_PESUGrab-7e57c2?style=for-the-badge&logoColor=white" height="40">
+  </a>
+</p>
+
+</div>
+
+---
 
 ## Features
 
-- **One-click login** — authenticate with your SRN and password
-- **Semester switching** — browse all available semesters
-- **Course & unit navigation** — explore courses and their units in a clean UI
-- **Flexible downloads** — download a single unit, all units in a course, or everything in a semester
-- **Organized output** — files are saved into `Course / Unit /` folders automatically
-- **Dark, minimal UI** — grayscale Tkinter interface with a dark title bar
+|                                |                                                                      |
+| ------------------------------ | -------------------------------------------------------------------- |
+| 🔐 **One-Click Login**          | Authenticate with your SRN and password                              |
+| 📚 **Semester Browser**         | Switch between all available semesters                               |
+| 📂 **Course & Unit Navigation** | Browse courses and their units in a clean tree view                  |
+| ⬇️ **Flexible Downloads**       | Download a single unit, all units in a course, or an entire semester |
+| 📁 **Organized Output**         | Files saved into `Course / Unit /` folders automatically             |
+| ⏳ **Live Progress**            | Animated loading indicators and a real-time log                      |
+| 🎨 **Dark Violet Theme**        | Minimal grayscale UI with dark window chrome                         |
 
-## Requirements
+---
 
-- Python 3.12+
-- Windows 10/11 (for the dark title bar; the app still works on other platforms)
+## Quick Start
 
-## Setup
+### Option 1 — Standalone `.exe` (recommended)
+
+1. Go to [**Releases**](https://github.com/imyash0722/PESUGrab/releases/latest)
+2. Download `PESUGrab.exe` (or the `.zip` / `.rar` archive)
+3. Double-click to run — **no Python required**
+
+> [!NOTE]
+> The exe bundles Python + dependencies. Playwright's Chromium browser is **not** bundled — it will be downloaded on first run. Make sure you have internet access.
+
+### Option 2 — Run from source
 
 ```bash
+# Clone the repo
+git clone https://github.com/imyash0722/PESUGrab.git
+cd PESUGrab
+
 # Install dependencies
-pip install playwright python-dotenv
+pip install -r requirements.txt
 
 # Install the Chromium browser for Playwright
 python -m playwright install chromium
-```
 
-## Usage
-
-```bash
+# Launch
 python app.py
 ```
 
-1. Enter your SRN and password, then click **Login**
-2. Select a semester from the dropdown — courses will load automatically
-3. Click a course to see its units
-4. Use the download buttons:
-   - **Download Selected Unit** — downloads files for the highlighted unit
-   - **Download All Units (Course)** — downloads every unit in the selected course
-   - **Download All Courses (Semester)** — downloads everything for the current semester
+---
 
-Files are saved to `~/Downloads/` by default (changeable via Browse).
+## Usage
+
+1. **Login** — enter your SRN and password in the login dialog
+2. **Select semester** — courses load automatically
+3. **Click a course** — units will appear in the right panel
+4. **Download** using one of three buttons:
+
+| Button                              | What it does                                  |
+| ----------------------------------- | --------------------------------------------- |
+| **Download Selected Unit**          | Downloads files for the highlighted unit      |
+| **Download All Units (Course)**     | Downloads every unit in the selected course   |
+| **Download All Courses (Semester)** | Downloads everything for the current semester |
+
+Files are saved to `~/Downloads/` by default — changeable via **Browse**.
+
+---
 
 ## Project Structure
 
 ```
-├── app.py           # Tkinter GUI + worker thread
-├── scraper.py       # Headless Playwright automation (AcademySession)
-├── requirements.txt # Python dependencies
+PESUGrab/
+├── app.py             # Tkinter GUI + worker thread
+├── scraper.py         # Headless Playwright automation (AcademySession)
+├── requirements.txt   # Python dependencies
+├── LICENSE
 └── README.md
 ```
 
+---
+
+## Building from Source
+
+To build the standalone `.exe` yourself:
+
+```bash
+pip install pyinstaller
+python -m PyInstaller --onefile --windowed --name PESUGrab app.py
+```
+
+The output will be in `dist/PESUGrab.exe`.
+
+---
+
+## Tech Stack
+
+- **Python 3.12+** — core runtime
+- **Tkinter** — native desktop GUI
+- **Playwright** — headless Chromium automation
+- **PyInstaller** — standalone exe packaging
+
+---
+
 ## License
 
-MIT
+[MIT](LICENSE)
+
+---
+
+<div align="center">
+  <sub>Built with ☕ for PES University students</sub>
+</div>
