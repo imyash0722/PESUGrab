@@ -7,11 +7,16 @@ import ctypes
 import os
 import re
 import queue
+import subprocess
+import subprocess
+import sys
 import threading
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 
-from scraper import AcademySession
+# Type checking / IDE support
+if False:
+    from scraper import AcademySession
 
 # ────────────────────────────────────────────────────────────
 # Palette
@@ -614,11 +619,86 @@ class PESUGrab:
         self.root.destroy()
 
 
-def main():
+def _run_setup_and_launch():
+    """Verify and install dependencies and Chromium before launching the app."""
+    import importlib.util
+
+    setup_root = tk.Tk()
+    setup_root.title("PESUGrab Setup")
+    setup_root.configure(bg=BG)
+    _center(setup_root, 400, 150)
+    setup_root.resizable(False, False)
+    _dark_titlebar(setup_root)
+    
+    # Hide the setup window initially while we check if setup is even needed
+    setup_root.withdraw()
+
+    # Determine if we need to do any work
+    needs_pip = (importlib.util.find_spec("playwright") is None) or (importlib.util.find_spec("dotenv") is None)
+    
+    # Check for playwright browsers
+    needs_chromium = False
+    if not needs_pip:
+        try:
+            # Quick check if browsers are installed
+            out = subprocess.run([sys.executable, "-m", "playwright", "install", "--dry-run"], capture_output=True, text=True)
+            if "chromium" in out.stdout.lower() and "download" in out.stdout.lower():
+                 needs_chromium = True
+        except Exception:
+            needs_chromium = True
+            
+    if not needs_pip and not needs_chromium:
+        setup_root.destroy()
+        _launch_main()
+        return
+
+    # Work is needed! Show UI
+    setup_root.deiconify()
+    
+    lbl = tk.Label(setup_root, text="Setting up PESUGrab for first use...", bg=BG, fg=TEXT_HI, font=FONT_TITLE)
+    lbl.pack(pady=(20, 10))
+    
+    status_lbl = tk.Label(setup_root, text="Checking requirements...", bg=BG, fg=TEXT_DIM, font=FONT)
+    status_lbl.pack(pady=(0, 10))
+
+    def _setup_worker():
+        try:
+            if needs_pip:
+                setup_root.after(0, lambda: status_lbl.config(text="Installing Python dependencies..."))
+                subprocess.run(
+                    [sys.executable, "-m", "pip", "install", "playwright", "python-dotenv"],
+                    check=True,
+                    creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0
+                )
+            
+            setup_root.after(0, lambda: status_lbl.config(text="Installing Playwright Chromium...\n(This may take a few minutes)"))
+            subprocess.run(
+                [sys.executable, "-m", "playwright", "install", "chromium"],
+                check=True,
+                creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0
+            )
+            
+            setup_root.after(0, setup_root.destroy)
+            setup_root.after(0, _launch_main)
+            
+        except Exception as e:
+            setup_root.after(0, lambda: status_lbl.config(text=f"Setup failed! Please run manually.\n{e}"))
+
+    threading.Thread(target=_setup_worker, daemon=True).start()
+    setup_root.mainloop()
+
+
+def _launch_main():
+    """Launch the actual application after setup is guaranteed."""
+    # We must import scraper here locally inside _launch_main, 
+    # because if playwright wasn't installed, importing it at the top of the file would crash the script!
+    global AcademySession
+    from scraper import AcademySession
+
     root = tk.Tk()
     PESUGrab(root)
     root.mainloop()
 
 
 if __name__ == "__main__":
-    main()
+    _run_setup_and_launch()

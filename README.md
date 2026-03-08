@@ -51,13 +51,7 @@
 git clone https://github.com/imyash0722/PESUGrab.git
 cd PESUGrab
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Install the Chromium browser for Playwright
-python -m playwright install chromium
-
-# Launch
+# Launch (dependencies and chromium are automatically installed!)
 python app.py
 ```
 
