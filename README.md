@@ -7,14 +7,14 @@
 <p>
 
   <a href="https://github.com/imyash0722/PESUGrab/releases/latest">
-    <img alt="Latest Release" src="https://img.shields.io/github/v/release/imyash0722/PESUGrab?style=for-the-badge&logo=windows&logoColor=white&label=Latest&color=b39ddb&v=1">
+    <img alt="Latest Release" src="https://img.shields.io/github/v/release/imyash0722/PESUGrab?style=for-the-badge&logo=windows&logoColor=white&label=Latest&color=b39ddb&v=2">
   </a>
   &nbsp;
   <img alt="Python" src="https://img.shields.io/badge/Python-3.12+-333?style=for-the-badge&logo=python&logoColor=white">
   &nbsp;
   <img alt="Platform" src="https://img.shields.io/badge/Windows-10%2F11-333?style=for-the-badge&logo=windows&logoColor=white">
   &nbsp;
-  <img alt="License" src="https://img.shields.io/github/license/imyash0722/PESUGrab?style=for-the-badge&color=444&v=1">
+  <img alt="License" src="https://img.shields.io/github/license/imyash0722/PESUGrab?style=for-the-badge&color=444&v=2">
 </p>
 
 </div>
