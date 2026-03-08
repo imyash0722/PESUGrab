@@ -21,8 +21,6 @@
 
 </div>
 
----
-
 ## Features
 
 |                                |                                                                      |
@@ -34,8 +32,6 @@
 | 📁 **Organized Output**         | Files saved into `Course / Unit /` folders automatically             |
 | ⏳ **Live Progress**            | Animated loading indicators and a real-time log                      |
 | 🎨 **Dark Violet Theme**        | Minimal grayscale UI with dark window chrome                         |
-
----
 
 ## Quick Start
 
@@ -65,8 +61,6 @@ python -m playwright install chromium
 python app.py
 ```
 
----
-
 ## Usage
 
 1. **Login** — enter your SRN and password in the login dialog
@@ -82,8 +76,6 @@ python app.py
 
 Files are saved to `~/Downloads/` by default — changeable via **Browse**.
 
----
-
 ## Project Structure
 
 ```
@@ -94,8 +86,6 @@ PESUGrab/
 ├── LICENSE
 └── README.md
 ```
-
----
 
 ## Building from Source
 
@@ -108,8 +98,6 @@ python -m PyInstaller --onefile --windowed --name PESUGrab app.py
 
 The output will be in `dist/PESUGrab.exe`.
 
----
-
 ## Tech Stack
 
 - **Python 3.12+** — core runtime
@@ -117,13 +105,9 @@ The output will be in `dist/PESUGrab.exe`.
 - **Playwright** — headless Chromium automation
 - **PyInstaller** — standalone exe packaging
 
----
-
 ## License
 
 [GPL-3.0](LICENSE)
-
----
 
 <div align="center">
   <sub>Built with ☕ for PES University students</sub>
