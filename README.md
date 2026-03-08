@@ -17,8 +17,6 @@
   <img alt="License" src="https://img.shields.io/github/license/imyash0722/PESUGrab?style=for-the-badge&color=444&v=1">
 </p>
 
-<br>
-
 </div>
 
 > [!WARNING]
