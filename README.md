@@ -22,12 +22,6 @@
 
 <br>
 
-<p>
-  <a href="https://github.com/imyash0722/PESUGrab/releases/latest">
-    <img src="https://img.shields.io/badge/⬇_Download_PESUGrab-7e57c2?style=for-the-badge&logoColor=white" height="40">
-  </a>
-</p>
-
 </div>
 
 ---
